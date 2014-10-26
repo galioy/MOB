@@ -1,9 +1,11 @@
 package gm.icanplay;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class StartScreen extends Activity {
@@ -32,5 +34,9 @@ public class StartScreen extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void register(View view) {
+
     }
 }
