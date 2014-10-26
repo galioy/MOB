@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">ICanPlay</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="settings_filename">application_settings</string>
+    <string name="title_activity_kids_list">KidsList</string>
+
 </resources>
