@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 
 public class StartScreen extends Activity {
+    private String settings_filename = getString(R.string.settings_filename);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,13 @@ public class StartScreen extends Activity {
     }
 
     public void register(View view) {
+//        Локално съхранение на примитивни променливи.
+//        http://developer.android.com/guide/topics/data/data-storage.html
+
+//        SharedPreferences settings = getSharedPreferences(settings_filename,0);
+//        SharedPreferences.Editor editor = settings.edit();
+//        editor.putBoolean("isRegistered",true);
+//        editor.putString("registeredName", T_name.getText().toString());
 
     }
 }

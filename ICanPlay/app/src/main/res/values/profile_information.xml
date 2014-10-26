@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="kid_name">unknown</string>
-    <string name="telephone_number">unknown</string>
-    <bool name="can_play">false</bool>
-</resources>
