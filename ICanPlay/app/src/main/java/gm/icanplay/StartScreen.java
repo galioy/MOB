@@ -56,8 +56,9 @@ public class StartScreen extends Activity {
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean("isRegistered",true);
         editor.putString("registeredName", name.getText().toString());
-        editor.putString("regesteredPhone", phone.getText().toString());
+        editor.putString("registeredPhone", phone.getText().toString());
         editor.putString("registeredSchool", groupid.getText().toString());
+        editor.commit();
 
 //        RestClient client = new RestClient();
     }
