@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import org.apache.http.*;
+import org.apache.http.client.HttpClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +18,9 @@ import gm.icanplay.model.Kid;
 
 public class StartScreen extends Activity {
     private String settings_filename = getString(R.string.settings_filename);
-
-    List<Kid> kids = new ArrayList<Kid>();
+    EditText name = (EditText) findViewById(R.id.T_name);
+    EditText phone = (EditText) findViewById(R.id.T_phone);
+    EditText groupid = (EditText) findViewById(R.id.T_group_id);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +52,13 @@ public class StartScreen extends Activity {
 //        Локално съхранение на примитивни променливи.
 //        http://developer.android.com/guide/topics/data/data-storage.html
 
-//        SharedPreferences settings = getSharedPreferences(settings_filename,0);
-//        SharedPreferences.Editor editor = settings.edit();
-//        editor.putBoolean("isRegistered",true);
-//        editor.putString("registeredName", T_name.getText().toString());
+        SharedPreferences settings = getSharedPreferences(settings_filename,0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean("isRegistered",true);
+        editor.putString("registeredName", name.getText().toString());
+        editor.putString("regesteredPhone", phone.getText().toString());
+        editor.putString("registeredSchool", groupid.getText().toString());
 
+//        RestClient client = new RestClient();
     }
 }
