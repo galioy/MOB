@@ -8,9 +8,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import gm.icanplay.model.Kid;
+
 
 public class StartScreen extends Activity {
     private String settings_filename = getString(R.string.settings_filename);
+
+    List<Kid> kids = new ArrayList<Kid>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
