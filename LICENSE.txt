@@ -1,0 +1,3 @@
+This repository and the software created in this repository belongs
+solely to Galin Kostov and Martin Kyukov.
+It is intended for educational purposes, so paws off!
