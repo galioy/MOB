@@ -7,8 +7,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import gm.icanplay.model.Kid;
+
 
 public class StartScreen extends Activity {
+
+    List<Kid> kids = new ArrayList<Kid>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
