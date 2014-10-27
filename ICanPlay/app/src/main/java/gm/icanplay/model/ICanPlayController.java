@@ -12,12 +12,6 @@ public class ICanPlayController {
     public void RegisterKid(String name, String group, String phone, String feed)
     {
         registerKidTask = new RegisterTask();
-        String[] params = new String[4];
-        params[0] = name;
-        params[1] = group;
-        params[2] = phone;
-        params[3] = feed;
-
-        registerKidTask.doInBackground(params);
+        registerKidTask.execute(name, group, phone, feed);
     }
 }
