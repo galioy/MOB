@@ -10,6 +10,7 @@ import android.widget.EditText;
 import org.apache.http.*;
 import org.apache.http.client.HttpClient;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,10 @@ public class StartScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        if registered -> get child data, display kids list
+//        else go to start screen
+
+
         setContentView(R.layout.activity_start_screen);
     }
 
