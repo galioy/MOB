@@ -14,21 +14,26 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
+import gm.icanplay.model.ICanPlayController;
+
 public class StartScreen extends Activity {
     private String preferences_name;
     private String feed;
+    private ICanPlayController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        if registered -> get child data, display kids list
 //        else go to start screen
-
-
         setContentView(R.layout.activity_start_screen);
 
+
+        //initialize shit
         preferences_name = getString(R.string.settings_filename);
+        controller = new ICanPlayController();
         feed = getString(R.string.feed);
+
     }
 
 
@@ -63,6 +68,8 @@ public class StartScreen extends Activity {
         String phone = phoneField.getText().toString();
         String groupid = groupidField.getText().toString();
 
+        controller.RegisterKid(name, groupid, phone, feed);
+
 //        SharedPreferences settings = getSharedPreferences(preferences_name,0);
 //        SharedPreferences.Editor editor = settings.edit();
 //        editor.putBoolean("isRegistered",true);
@@ -71,21 +78,5 @@ public class StartScreen extends Activity {
 //        editor.putString("registeredSchool", groupid);
 //        editor.commit();
 
-        try
-        {
-            URL ws_url = new URL(feed+"cmd=register&Groupid="+groupid+"&Name="+name+"&Telephone="+phone);
-            URLConnection connection = ws_url.openConnection();
-            HttpURLConnection httpConnection = (HttpURLConnection) connection;
-            int responseCode = httpConnection.getResponseCode();
-        }
-        catch (MalformedURLException up)
-        {
-//            Log.d(TAG, "Malformed URL Exception. ahihihi");
-            throw up;
-        }
-        catch (IOException up)
-        {
-            throw up;
-        }
     }
 }
