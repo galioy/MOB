@@ -1,5 +1,7 @@
 package gm.icanplay.model;
 
+import android.os.AsyncTask;
+
 /**
  * Created by Martin on 10/27/14.
  */

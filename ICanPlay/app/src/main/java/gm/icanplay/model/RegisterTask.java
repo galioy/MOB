@@ -13,7 +13,7 @@ import gm.icanplay.R;
 /**
  * Created by Martin on 10/27/14.
  */
-public class RegisterTask extends AsyncTask<String, Integer,String> {
+public class RegisterTask extends AsyncTask<String, Integer, String> {
 
     @Override
     protected String doInBackground(String... strings) {
@@ -25,7 +25,7 @@ public class RegisterTask extends AsyncTask<String, Integer,String> {
         URL ws_url = null;
         try {
 
-            ws_url = new URL(feed+"cmd=register&Groupid="+group+"&Name="+name+"&Telephone="+phone);
+            ws_url = new URL(feed + "cmd=register&Groupid=" + group + "&Name=" + name + "&Telephone=" + phone);
             URLConnection connection = ws_url.openConnection();
             HttpURLConnection httpConnection = (HttpURLConnection) connection;
             int responseCode = httpConnection.getResponseCode();

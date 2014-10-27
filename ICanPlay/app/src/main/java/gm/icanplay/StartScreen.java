@@ -15,6 +15,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import gm.icanplay.model.ICanPlayController;
+import gm.icanplay.model.RegisterTask;
 
 public class StartScreen extends Activity {
     private String preferences_name;
@@ -68,7 +69,7 @@ public class StartScreen extends Activity {
         String phone = phoneField.getText().toString();
         String groupid = groupidField.getText().toString();
 
-        controller.RegisterKid(name, groupid, phone, feed);
+        controller.RegisterKid(name,groupid,phone,feed);
 
 //        SharedPreferences settings = getSharedPreferences(preferences_name,0);
 //        SharedPreferences.Editor editor = settings.edit();
