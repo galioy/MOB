@@ -1,7 +1,6 @@
 package gm.icanplay;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,13 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 
 import gm.icanplay.model.ICanPlayController;
-import gm.icanplay.model.RegisterTask;
 
 public class StartScreen extends Activity {
     private String preferences_name;
@@ -30,7 +24,7 @@ public class StartScreen extends Activity {
         setContentView(R.layout.activity_start_screen);
 
 
-        //initialize shit
+        //assign values to global variables
         preferences_name = getString(R.string.settings_filename);
         controller = new ICanPlayController();
         feed = getString(R.string.feed);
@@ -69,15 +63,16 @@ public class StartScreen extends Activity {
         String phone = phoneField.getText().toString();
         String groupid = groupidField.getText().toString();
 
-        controller.RegisterKid(name,groupid,phone,feed,this);
+        controller.registerKid(name, groupid, phone, feed, this);
+    }
 
-//        SharedPreferences settings = getSharedPreferences(preferences_name,0);
-//        SharedPreferences.Editor editor = settings.edit();
-//        editor.putBoolean("isRegistered",true);
-//        editor.putString("registeredName", name);
-//        editor.putString("registeredPhone", phone);
-//        editor.putString("registeredSchool", groupid);
-//        editor.commit();
+    public void canPlay(View view) throws IOException {
+        EditText nameField = (EditText) findViewById(R.id.T_name);
+        EditText groupidField = (EditText) findViewById(R.id.T_group_id);
 
+        String name = nameField.getText().toString();
+        String groupid = groupidField.getText().toString();
+
+        controller.kidCanPlay(name, groupid, feed, this);
     }
 }

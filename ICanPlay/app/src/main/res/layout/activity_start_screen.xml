@@ -21,6 +21,7 @@
         android:hint="Name" />
 
     <Button
+        android:onClick="canPlay"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:text="Can Play!"

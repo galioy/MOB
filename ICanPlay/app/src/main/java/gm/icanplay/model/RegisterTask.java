@@ -4,14 +4,12 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-import gm.icanplay.R;
 import gm.icanplay.StartScreen;
 
 /**
@@ -22,8 +20,8 @@ public class RegisterTask extends AsyncTask<String, String, String> {
     private ProgressDialog dialog;
     private StartScreen activity;
 
-    public RegisterTask(StartScreen activity) {
-        this.activity = activity;
+    public RegisterTask(StartScreen _activity) {
+        this.activity = _activity;
     }
 
     @Override
@@ -32,7 +30,6 @@ public class RegisterTask extends AsyncTask<String, String, String> {
         String group = strings[1];
         String phone = strings[2];
         String feed = strings[3];
-
         URL ws_url = null;
 
         try {
