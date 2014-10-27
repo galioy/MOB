@@ -7,14 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import org.apache.http.*;
-import org.apache.http.client.HttpClient;
-
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import gm.icanplay.model.Kid;
 
 
 public class StartScreen extends Activity {
