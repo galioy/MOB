@@ -4,10 +4,12 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 
 import gm.icanplay.R;
 import gm.icanplay.StartScreen;
@@ -31,7 +33,11 @@ public class RegisterTask extends AsyncTask<String, String, String> {
         String feed = strings[3];
 
         URL ws_url = null;
+
         try {
+            name = URLEncoder.encode(name, "utf-8");
+            group = URLEncoder.encode(group, "utf-8");
+            phone = URLEncoder.encode(phone, "utf-8");
 
             ws_url = new URL(feed + "cmd=register&Groupid=" + group + "&Name=" + name + "&Telephone=" + phone);
             URLConnection connection = ws_url.openConnection();
@@ -43,7 +49,6 @@ public class RegisterTask extends AsyncTask<String, String, String> {
         } catch (IOException up) {
             up.printStackTrace();
         }
-
 
         return null;
     }
