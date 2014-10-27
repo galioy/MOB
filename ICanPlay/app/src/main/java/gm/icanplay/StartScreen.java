@@ -8,13 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-
-
 public class StartScreen extends Activity {
     private String preferences_name;
     private String feed;
@@ -22,6 +15,10 @@ public class StartScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        if registered -> get child data, display kids list
+//        else go to start screen
+
+
         setContentView(R.layout.activity_start_screen);
 
         preferences_name = getString(R.string.settings_filename);
