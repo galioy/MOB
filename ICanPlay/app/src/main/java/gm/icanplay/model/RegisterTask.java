@@ -21,6 +21,7 @@ public class RegisterTask extends AsyncTask<String, String, String> {
 
     private ProgressDialog dialog;
     private StartScreen activity;
+
     public RegisterTask(StartScreen activity) {
         this.activity = activity;
     }
@@ -56,13 +57,6 @@ public class RegisterTask extends AsyncTask<String, String, String> {
     public void RecordAndAlignTask(StartScreen activity) {
         dialog = new ProgressDialog(activity);
     }
-
-
-    protected void onPreExecute() {
-        dialog.setMessage("Registering, please wait!");
-        dialog.show();
-    }
-
 
     protected void onPostExecute(Void result) {
         if (dialog.isShowing()) {

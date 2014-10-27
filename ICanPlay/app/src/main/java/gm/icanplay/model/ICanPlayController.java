@@ -9,11 +9,8 @@ import gm.icanplay.StartScreen;
  */
 public class ICanPlayController {
 
-    RegisterTask registerKidTask;
-
     public void RegisterKid(String name, String group, String phone, String feed,StartScreen activity)
     {
-        registerKidTask = new RegisterTask(activity);
-        registerKidTask.execute(name, group, phone, feed);
+        new RegisterTask(activity).execute(name, group, phone, feed);
     }
 }

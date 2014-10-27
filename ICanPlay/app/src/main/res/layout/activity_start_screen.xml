@@ -23,7 +23,7 @@
     <Button
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:text="Log me in!"
+        android:text="Can Play!"
         android:id="@+id/B_log_in"
         android:layout_marginBottom="97dp"
         android:layout_alignParentBottom="true"
