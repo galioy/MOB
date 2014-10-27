@@ -69,7 +69,7 @@ public class StartScreen extends Activity {
         String phone = phoneField.getText().toString();
         String groupid = groupidField.getText().toString();
 
-        controller.RegisterKid(name,groupid,phone,feed);
+        controller.RegisterKid(name,groupid,phone,feed,this);
 
 //        SharedPreferences settings = getSharedPreferences(preferences_name,0);
 //        SharedPreferences.Editor editor = settings.edit();

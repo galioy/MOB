@@ -1,5 +1,6 @@
 package gm.icanplay.model;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 import java.io.IOException;
@@ -9,11 +10,18 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import gm.icanplay.R;
+import gm.icanplay.StartScreen;
 
 /**
  * Created by Martin on 10/27/14.
  */
-public class RegisterTask extends AsyncTask<String, Integer, String> {
+public class RegisterTask extends AsyncTask<String, String, String> {
+
+    private ProgressDialog dialog;
+    private StartScreen activity;
+    public RegisterTask(StartScreen activity) {
+        this.activity = activity;
+    }
 
     @Override
     protected String doInBackground(String... strings) {
@@ -38,6 +46,23 @@ public class RegisterTask extends AsyncTask<String, Integer, String> {
 
 
         return null;
+    }
+
+    public void RecordAndAlignTask(StartScreen activity) {
+        dialog = new ProgressDialog(activity);
+    }
+
+
+    protected void onPreExecute() {
+        dialog.setMessage("Registering, please wait!");
+        dialog.show();
+    }
+
+
+    protected void onPostExecute(Void result) {
+        if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
     }
 
 }
