@@ -7,25 +7,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import org.apache.http.*;
-import org.apache.http.client.HttpClient;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import gm.icanplay.model.Kid;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 
 
 public class StartScreen extends Activity {
-    private String settings_filename = getString(R.string.settings_filename);
-    EditText name = (EditText) findViewById(R.id.T_name);
-    EditText phone = (EditText) findViewById(R.id.T_phone);
-    EditText groupid = (EditText) findViewById(R.id.T_group_id);
+    private String preferences_name;
+    private String feed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
+
+        preferences_name = getString(R.string.settings_filename);
+        feed = getString(R.string.feed);
     }
 
 
@@ -48,18 +48,41 @@ public class StartScreen extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void register(View view) {
+    public void register(View view) throws IOException {
 //        Локално съхранение на примитивни променливи.
 //        http://developer.android.com/guide/topics/data/data-storage.html
 
-        SharedPreferences settings = getSharedPreferences(settings_filename,0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean("isRegistered",true);
-        editor.putString("registeredName", name.getText().toString());
-        editor.putString("registeredPhone", phone.getText().toString());
-        editor.putString("registeredSchool", groupid.getText().toString());
-        editor.commit();
+        EditText nameField = (EditText) findViewById(R.id.T_name);
+        EditText phoneField = (EditText) findViewById(R.id.T_phone);
+        EditText groupidField = (EditText) findViewById(R.id.T_group_id);
 
-//        RestClient client = new RestClient();
+        String name = nameField.getText().toString();
+        String phone = phoneField.getText().toString();
+        String groupid = groupidField.getText().toString();
+
+//        SharedPreferences settings = getSharedPreferences(preferences_name,0);
+//        SharedPreferences.Editor editor = settings.edit();
+//        editor.putBoolean("isRegistered",true);
+//        editor.putString("registeredName", name);
+//        editor.putString("registeredPhone", phone);
+//        editor.putString("registeredSchool", groupid);
+//        editor.commit();
+
+        try
+        {
+            URL ws_url = new URL(feed+"cmd=register&Groupid="+groupid+"&Name="+name+"&Telephone="+phone);
+            URLConnection connection = ws_url.openConnection();
+            HttpURLConnection httpConnection = (HttpURLConnection) connection;
+            int responseCode = httpConnection.getResponseCode();
+        }
+        catch (MalformedURLException up)
+        {
+//            Log.d(TAG, "Malformed URL Exception. ahihihi");
+            throw up;
+        }
+        catch (IOException up)
+        {
+            throw up;
+        }
     }
 }

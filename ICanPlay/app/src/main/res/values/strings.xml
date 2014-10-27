@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="settings_filename">application_settings</string>
     <string name="title_activity_kids_list">KidsList</string>
+    <string name="feed">http://www.icelab.dk/mobi2icanplayserver/MOBI2ICanPlayServer?</string>
 
 </resources>
