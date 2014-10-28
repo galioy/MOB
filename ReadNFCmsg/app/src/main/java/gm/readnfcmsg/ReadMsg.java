@@ -1,7 +1,12 @@
 package gm.readnfcmsg;
 
 import android.app.Activity;
+import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
+import android.nfc.NfcAdapter;
+import android.nfc.tech.NfcA;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,6 +17,28 @@ public class ReadMsg extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_msg);
+
+        String action = getIntent().getAction();
+
+        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action))
+        {
+            Parcelable[] messages = getIntent().getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+
+            for (int i = 0; i< messages.length; i++)
+            {
+                NdefMessage message = (NdefMessage)messages[i];
+                NdefRecord[] records = message.getRecords();
+
+                for (int j = 0; j < records.length; j++)
+                {
+                    NdefRecord record = records[j];
+                    //display to ui
+                }
+            }
+
+
+
+        }
     }
 
 
