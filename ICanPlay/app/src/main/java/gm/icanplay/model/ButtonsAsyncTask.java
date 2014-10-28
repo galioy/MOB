@@ -15,12 +15,12 @@ import gm.icanplay.StartScreen;
 /**
  * Created by Martin on 10/27/14.
  */
-public class RegisterTask extends AsyncTask<String, String, String> {
+public class ButtonsAsyncTask extends AsyncTask<String, String, String> {
 
     private ProgressDialog dialog;
     private StartScreen activity;
 
-    public RegisterTask(StartScreen _activity) {
+    public ButtonsAsyncTask(StartScreen _activity) {
         this.activity = _activity;
     }
 
@@ -30,6 +30,7 @@ public class RegisterTask extends AsyncTask<String, String, String> {
         String group = strings[1];
         String phone = strings[2];
         String feed = strings[3];
+        String command = strings[4];
         URL ws_url = null;
 
         try {
@@ -37,7 +38,7 @@ public class RegisterTask extends AsyncTask<String, String, String> {
             group = URLEncoder.encode(group, "utf-8");
             phone = URLEncoder.encode(phone, "utf-8");
 
-            ws_url = new URL(feed + "cmd=register&Groupid=" + group + "&Name=" + name + "&Telephone=" + phone);
+            ws_url = new URL(this.getWsUrl(command, name, group, phone, feed));
             URLConnection connection = ws_url.openConnection();
             HttpURLConnection httpConnection = (HttpURLConnection) connection;
             int responseCode = httpConnection.getResponseCode();
@@ -49,6 +50,14 @@ public class RegisterTask extends AsyncTask<String, String, String> {
         }
 
         return null;
+    }
+
+    private String getWsUrl(String cmd, String name, String group, String phone, String feed) {
+        if (cmd == "register") {
+            return feed + "cmd=register&Groupid=" + group + "&Name=" + name + "&Telephone=" + phone;
+        } else {
+            return feed + "cmd=" + cmd + "&Name=" + name + "&Groupid=" + group;
+        }
     }
 
     public void RecordAndAlignTask(StartScreen activity) {

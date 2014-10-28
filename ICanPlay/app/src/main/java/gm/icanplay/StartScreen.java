@@ -63,26 +63,30 @@ public class StartScreen extends Activity {
         String phone = phoneField.getText().toString();
         String groupid = groupidField.getText().toString();
 
-        controller.registerKid(name, groupid, phone, feed, this);
+        controller.buttonAction(name, groupid, phone, feed, this, "register");
     }
 
     public void canPlay(View view) throws IOException {
         EditText nameField = (EditText) findViewById(R.id.T_name);
+        EditText phoneField = (EditText) findViewById(R.id.T_phone);
         EditText groupidField = (EditText) findViewById(R.id.T_group_id);
 
         String name = nameField.getText().toString();
+        String phone = phoneField.getText().toString();
         String groupid = groupidField.getText().toString();
 
-        controller.kidCanPlay(name, groupid, feed, this);
+        controller.buttonAction(name, groupid, phone, feed, this, "canplay");
     }
 
     public void cannotPlay(View view) throws IOException {
         EditText nameField = (EditText) findViewById(R.id.T_name);
+        EditText phoneField = (EditText) findViewById(R.id.T_phone);
         EditText groupidField = (EditText) findViewById(R.id.T_group_id);
 
         String name = nameField.getText().toString();
+        String phone = phoneField.getText().toString();
         String groupid = groupidField.getText().toString();
 
-        controller.kidCannotPlay(name, groupid, feed, this);
+        controller.buttonAction(name, groupid, phone, feed, this, "cannotplay");
     }
 }
