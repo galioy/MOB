@@ -25,11 +25,21 @@
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:text="Can Play!"
-        android:id="@+id/B_log_in"
+        android:id="@+id/B_can_play"
         android:layout_marginBottom="97dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:onClick="cannotPlay"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:text="Cannot Play!"
+        android:id="@+id/B_cannot_play"
+        android:layout_alignBottom="@+id/B_can_play"
+        android:layout_toRightOf="@+id/B_can_play"
+        android:layout_toEndOf="@+id/B_can_play" />
 
     <Button
         android:onClick="register"
@@ -37,9 +47,11 @@
         android:layout_height="60dp"
         android:text="Register me!"
         android:id="@+id/B_register"
-        android:layout_alignTop="@+id/B_log_in"
-        android:layout_alignRight="@+id/T_name"
-        android:layout_alignEnd="@+id/T_name" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true" />
 
     <EditText
         android:layout_width="200dp"

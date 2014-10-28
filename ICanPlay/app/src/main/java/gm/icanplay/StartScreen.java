@@ -75,4 +75,14 @@ public class StartScreen extends Activity {
 
         controller.kidCanPlay(name, groupid, feed, this);
     }
+
+    public void cannotPlay(View view) throws IOException {
+        EditText nameField = (EditText) findViewById(R.id.T_name);
+        EditText groupidField = (EditText) findViewById(R.id.T_group_id);
+
+        String name = nameField.getText().toString();
+        String groupid = groupidField.getText().toString();
+
+        controller.kidCannotPlay(name, groupid, feed, this);
+    }
 }

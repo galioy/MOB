@@ -14,4 +14,8 @@ public class ICanPlayController {
     public void kidCanPlay(String name, String group, String feed, StartScreen activity) {
         new CanPlayTask(activity).execute(name, group, feed);
     }
+
+    public void kidCannotPlay(String name, String group, String feed, StartScreen activity) {
+        new CannotPlayTask(activity).execute(name, group, feed);
+    }
 }
