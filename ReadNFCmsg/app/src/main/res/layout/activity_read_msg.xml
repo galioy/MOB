@@ -4,19 +4,58 @@
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
     tools:context=".ReadMsg">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/Text_NFCMessage"
-        android:hint="NFC MESSAGE"
-        android:textSize="40dp"
+        android:id="@+id/T_nfc_read"
+        android:hint="The message"
+        android:textSize="20dp"
         android:textAlignment="center"
-        android:layout_marginTop="122dp"
+        android:layout_below="@+id/B_read"
+        android:layout_above="@+id/T_nfc_write"
+        android:layout_alignRight="@+id/T_nfc_write"
+        android:layout_alignEnd="@+id/T_nfc_write"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:onClick="readNfc"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:text="Read me!"
+        android:id="@+id/B_read"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:id="@+id/T_nfc_write"
+        android:hint="Type in som mofo text..."
+        android:layout_above="@+id/B_write"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:onClick="writeNfc"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Beem me up!"
+        android:id="@+id/B_write"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/T_nfc_write"
+        android:layout_alignEnd="@+id/T_nfc_write" />
+
 </RelativeLayout>
