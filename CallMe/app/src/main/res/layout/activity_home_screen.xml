@@ -29,4 +29,14 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/T_input"
         android:onClick="callMe"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hanging up, huh?"
+        android:id="@+id/B_hang_up"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="unregister"/>
 </RelativeLayout>
