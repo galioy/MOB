@@ -61,7 +61,7 @@ public class MainBluetooth extends Activity {
             btAdapter.enable();
         }
         Set<BluetoothDevice> myDevice = btAdapter.getBondedDevices();
-        mDevice = btAdapter.getRemoteDevice("BC:77:37:6F:A0:3F");
+        mDevice = btAdapter.getRemoteDevice("00:12:6F:25:CE:B9");
 
 //		System.out.println("Try to get a socket");
         output_view.append("Try to get a socket...\n");
@@ -70,6 +70,7 @@ public class MainBluetooth extends Activity {
 
         try {
             socket = mDevice.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+
             System.out.println("Got a socket");
 //            output_view.append("Got a socket...\n");
             Thread thr = new ConnectThread(socket);
