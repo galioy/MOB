@@ -22,7 +22,6 @@ public class MainBluetooth extends Activity {
     private BluetoothAdapter btAdapter;
     private BroadcastReceiver mReceiver;
     private BluetoothDevice mDevice;
-    private static TextView output_view;
 
     @Override
     public View findViewById(int id) {
@@ -43,12 +42,10 @@ public class MainBluetooth extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_bluetooth);
         Button button = (Button) findViewById(R.id.button1);
-        output_view = (TextView) findViewById(R.id.TV_output);
 
         OnClickListener mCorkyListener = new OnClickListener() {
             public void onClick(View v) {
                 System.out.println("enableBluetooth");
-                output_view.append("enableBluetooth\n");
                 enableBT();
             }
         };
@@ -61,10 +58,10 @@ public class MainBluetooth extends Activity {
             btAdapter.enable();
         }
         Set<BluetoothDevice> myDevice = btAdapter.getBondedDevices();
-        mDevice = btAdapter.getRemoteDevice("00:12:6F:25:CE:B9");
 
-//		System.out.println("Try to get a socket");
-        output_view.append("Try to get a socket...\n");
+        mDevice = btAdapter.getRemoteDevice("00:12:6F:27:A0:6C");
+
+		System.out.println("Try to get a socket");
 
         BluetoothSocket socket;
 
@@ -72,7 +69,6 @@ public class MainBluetooth extends Activity {
             socket = mDevice.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
 
             System.out.println("Got a socket");
-//            output_view.append("Got a socket...\n");
             Thread thr = new ConnectThread(socket);
             btAdapter.cancelDiscovery();
             thr.start();
@@ -99,12 +95,10 @@ public class MainBluetooth extends Activity {
         @Override
         public void run() {
             System.out.println("Connecting..");
-//            output_view.append("Connecting...\n");
             try {
 
                 socket.connect();
                 System.out.println("connection established");
-//                output_view.append("Connection established!!!\n");
                 try {
                     OutputStream output = socket.getOutputStream();
                     output.write('X');
@@ -120,7 +114,6 @@ public class MainBluetooth extends Activity {
                 System.out.println("DESTROYED");
 
             } catch (IOException e1) {
-//                output_view.append("IOException!");
                 System.out.println(e1.getMessage());
             }
         }
