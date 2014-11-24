@@ -3,6 +3,7 @@ package gm.callme;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.net.sip.SipAudioCall;
 import android.net.sip.SipException;
 import android.net.sip.SipManager;
 import android.net.sip.SipProfile;
@@ -19,6 +20,8 @@ public class HomeScreen extends Activity {
 
     public SipManager sipManager = null;
     public SipProfile sipProfile = null;
+    public SipAudioCall.Listener listener = null;
+    public SipAudioCall call = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,7 @@ public class HomeScreen extends Activity {
             sipManager = SipManager.newInstance(this);
         }
         try {
-            SipProfile.Builder sipBuilder = new SipProfile.Builder("6005", "10.152.128.145");
+            SipProfile.Builder sipBuilder = new SipProfile.Builder("milkncookiez", "10.152.128.145");
             sipBuilder.setPassword("unsecurepassword");
             sipBuilder.build();
         } catch (ParseException e) {
@@ -61,6 +64,8 @@ public class HomeScreen extends Activity {
         } catch (SipException e) {
             e.printStackTrace();
         }
+
+        listener = new SipAudioCall.Listener ();
     }
 
     @Override
@@ -87,10 +92,15 @@ public class HomeScreen extends Activity {
      * "So, call me maybe" button on the home screen.
      * @param view
      */
-    public void callMe(TextView view) {
-
+    public void callMe(TextView view) throws SipException {
+        call = sipManager.makeAudioCall (sipProfile.getUriString (), "6022@10.152.128.145", listener, 30);
     }
 
+    /**
+     * Handles the process that happens upon click of the
+     * "So, call me maybe" button on the home screen.
+     * @param view
+     */
     public void unregister(TextView view) {
         if (sipManager == null) {
             return;
@@ -104,5 +114,11 @@ public class HomeScreen extends Activity {
             e.printStackTrace();
             System.out.print("Failed to close local profile.");
         }
+    }
+
+//    @Override
+    public void onCallEstablished(SipAudioCall call){
+        call.startAudio ();
+        call.setSpeakerMode (true);
     }
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/main/res" >
+            <file
+                name="btn_speak_pressed"
+                path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/main/res/drawable/btn_speak_pressed.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="icon"
+                path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/main/res/drawable/icon.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="btn_speak_selected"
+                path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/main/res/drawable/btn_speak_selected.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="btn_record"
+                path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/main/res/drawable/btn_record.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="btn_speak_normal"
+                path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/main/res/drawable/btn_speak_normal.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="walkietalkie"
+                path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/main/res/layout/walkietalkie.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="call_address_dialog"
+                path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/main/res/layout/call_address_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="preferences"
+                path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/main/res/xml/preferences.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="app_name" >SIP Demo
+                </string>
+                <string name="contactAddress" >SIP Address to contact
+                </string>
+                <string name="talk" >Talk
+                </string>
+            </file>
+        </source>
+        <source path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/build/generated/res/rs/debug" />
+        <source path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/build/generated/res/generated/debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/home/milkncookiez/Developer/workspace/android/MOB/SipDemo/app/src/debug/res" />
+    </dataSet>
+
+</merger>
