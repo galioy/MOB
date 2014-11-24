@@ -47,9 +47,10 @@ public class Home extends Activity {
                     if (success) {
                         float orientation[] = new float[3];
                         SensorManager.getOrientation (rotation, orientation);
+                        // orientation contains: azimuth, pitch and roll
                         SensorManager.remapCoordinateSystem (rotation, SensorManager.AXIS_X, SensorManager.AXIS_Y, orientation);
 
-//                        azimuth = Math.round (Math.toDegrees (orientation[0])); // orientation contains: azimuth, pitch and roll
+//                        azimuth = Math.round (Math.toDegrees (orientation[0]));
                         pitch = Math.round (Math.toDegrees (orientation[1]));
                         roll = Math.round (Math.toDegrees (orientation[2]));
                     }
